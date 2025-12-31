@@ -8,14 +8,16 @@
 </head>
 <body>
 
-    <!-- Musik -->
-    <audio autoplay loop>
+    <!-- Musik Background -->
+    <audio id="bgMusic" autoplay muted loop>
         <source src="musik.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung audio.
     </audio>
 
-    <!-- Background -->
+    <!-- Background Stars -->
     <div class="stars"></div>
 
+    <!-- Card Utama -->
     <div class="card">
         <span class="badge">🌙 Selamat Malam Tahun Baru</span>
 
@@ -24,32 +26,44 @@
         <img src="zaza.jpeg" alt="Zaza">
 
         <p>
-            Tahun baru, vibes baru 💫  
-            Kalau capek rebahan,  
-            kalau lapar makan,  
+            Tahun baru, vibes baru 💫<br>
+            Kalau capek rebahan,<br>
+            kalau lapar makan,<br>
             kalau kangen zizi senyum aja 😆
         </p>
 
         <p class="small">
-           Selamat malam tahun baru, Zaza 🌙🎆
-Semoga tidur nyenyak walau hati agak bercabang 😌
-Soalnya tadi malam kamu asik sama Fuzan,
-sampe Zizi terlupakan kayak resolusi Januari 😭
-Tahun baru, jangan hobi ganti pemeran yaa wkwkwk 🤣
+            Selamat malam tahun baru, Zaza 🌙🎆<br>
+            Semoga tidur nyenyak walau hati agak bercabang 😌<br>
+            Soalnya tadi malam kamu asik sama Fuzan,<br>
+            sampe Zizi terlupakan kayak resolusi Januari 😭<br>
+            Tahun baru, jangan hobi ganti pemeran yaa wkwkwk 🤣
         </p>
+
+        <button onclick="playMusic()">
+            🎵 putar musik
+        </button>
 
         <button onclick="alert('HAHA ketauan senyum 😆')">
             tap pelan-pelan 💖
         </button>
     </div>
 
-    <!-- Efek berjatuhan -->
+    <!-- Script -->
     <script>
+        /* Musik */
+        function playMusic() {
+            const music = document.getElementById("bgMusic");
+            music.muted = false;
+            music.play();
+        }
+
+        /* Efek jatuh */
         const symbols = ["💖", "✨", "🎆"];
 
         function createFall() {
             const fall = document.createElement("div");
-            fall.classList.add("fall");
+            fall.className = "fall";
             fall.innerText = symbols[Math.floor(Math.random() * symbols.length)];
 
             fall.style.left = Math.random() * window.innerWidth + "px";
@@ -57,7 +71,6 @@ Tahun baru, jangan hobi ganti pemeran yaa wkwkwk 🤣
             fall.style.fontSize = (14 + Math.random() * 18) + "px";
 
             document.body.appendChild(fall);
-
             setTimeout(() => fall.remove(), 6000);
         }
 
