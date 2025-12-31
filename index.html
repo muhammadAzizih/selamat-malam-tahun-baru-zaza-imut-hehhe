@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year Zaza ✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Musik -->
+    <audio autoplay loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Background -->
+    <div class="stars"></div>
+
+    <div class="card">
+        <span class="badge">🌙 Selamat Malam Tahun Baru</span>
+
+        <h1>Hai<br><span>Zaza ✨</span></h1>
+
+        <img src="zaza.jpeg" alt="Zaza">
+
+        <p>
+            Tahun baru, vibes baru 💫  
+            Kalau capek rebahan,  
+            kalau lapar makan,  
+            kalau kangen zizi senyum aja 😆
+        </p>
+
+        <p class="small">
+           Selamat malam tahun baru, Zaza 🌙🎆
+Semoga tidur nyenyak walau hati agak bercabang 😌
+Soalnya tadi malam kamu asik sama Fuzan,
+sampe Zizi terlupakan kayak resolusi Januari 😭
+Tahun baru, jangan hobi ganti pemeran yaa wkwkwk 🤣
+        </p>
+
+        <button onclick="alert('HAHA ketauan senyum 😆')">
+            tap pelan-pelan 💖
+        </button>
+    </div>
+
+    <!-- Efek berjatuhan -->
+    <script>
+        const symbols = ["💖", "✨", "🎆"];
+
+        function createFall() {
+            const fall = document.createElement("div");
+            fall.classList.add("fall");
+            fall.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+
+            fall.style.left = Math.random() * window.innerWidth + "px";
+            fall.style.animationDuration = (3 + Math.random() * 3) + "s";
+            fall.style.fontSize = (14 + Math.random() * 18) + "px";
+
+            document.body.appendChild(fall);
+
+            setTimeout(() => fall.remove(), 6000);
+        }
+
+        setInterval(createFall, 350);
+    </script>
+
+</body>
+</html>
